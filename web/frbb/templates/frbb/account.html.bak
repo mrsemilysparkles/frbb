@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Log-in{% endblock %}
+{% block head %}
+    {{ wizard.form.media }}
+{% endblock %}
+
+<style>
+    .form-signin {
+        max-width: 550px;
+        padding: 15px;
+        margin: 0 auto;
+    }    
+</style>
+{% block content %}
+<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+
+ <div class="row">
+	<div class="col-xs-3 col-sm-3"> 
+	</div>
+	<div class="col-xs-6 col-sm-6">
+		<form action="" method="post">
+    		{{ wizard.management_form }}
+			<h4>Enter Existing/New Account #</h4>
+		    <form action="" method="post">
+		        {{ form.as_p }}
+		        {% csrf_token %}
+	</div>
+	<div class="col-xs-3 col-sm-3">
+		<br/>
+		<br/>
+		<input type="submit" class="btn btn-md btn-primary pull-right" value="{% trans "Login" %}"/>
+	</div>
+	</form>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block script %}
+    $(document).keypress(function(e){
+    if (e.which == 100){
+        window.location.href = "{% url "register" %}";
+    }
+    else if (e.which == 104) {
+        window.location.href = "{% url "login" %}";
+    }
+    }); 
+    
+{% endblock %}
+
+
+{% block content %}
+  <h1>1st Regional Bunny Bank</h1>
+<p> <strong>A</strong>ny <strong>T</strong>rue <strong>M</strong>eaning
+<p> Create an account, withdraw, deposit and exchange poetry </p>
+{% endblock %}
+
+{% block r-button4 %}
+    <a href="{% url "login" %}" class="btn-lg btn-primary btn">Login</a>
+{% endblock %}
+
+
+{% block l-button4 %}
+    <a href="{% url "register" %}" class="btn btn-lg btn-primary btn">First Time?</a>
+{% endblock %}
+

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block head %}
+    {{ wizard.form.media }}
+{% endblock %}
+{% block title %}1st Regional Bunny Bank{% endblock %}
+
+{% block content %}
+    <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+
+    <form action="" method="post">
+        {{ wizard.management_form }}
+        <form action="" method="post">
+            {{ wizard.initial }}
+            {{ form.as_p }}
+            {% csrf_token %}
+        </form>
+    </form>
+{% endblock %}
+
+
+
+

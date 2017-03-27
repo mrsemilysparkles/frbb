@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block script %}
+      $(document).keypress(function(e){
+        if (e.which == 100){
+            window.location.href = "{% url "deposit" %}";
+        }
+
+        else if (e.which == 99){
+            window.location.href = "{% url "withdraw" %}";
+        }
+        else if (e.which == 104) {
+            window.location.href = "{% url "logout" %}";
+        }
+      });
+{% endblock %}
+
+{% block content %}
+    <h1>{{ user }} </h1></p>
+    Account information: </p>
+                Balance: <strong>{{ balance }}</strong><br />
+                Deposits: <strong>{{ deposits }}</strong><br />
+
+    <h2>Patience, printer is slow</h2>
+{% endblock %}
+
+{% block l-button4 %}
+    <a href="{% url "deposit" %}" id="deposit" class="btn btn-lg btn-primary btn">Deposit</a>{% endblock %}
+
+{% block l-button3 %}
+    <a href="{% url "withdraw" %}" class="btn btn-lg btn-primary btn">Withdraw</a>
+{% endblock %}
+
+{% block r-button4 %}
+    <a href="{% url "logout" %}" class="btn btn-lg btn-primary btn">Logout</a>
+{% endblock %}

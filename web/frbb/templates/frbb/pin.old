@@ -1,0 +1,42 @@
+{% extends 'frbb/base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block head %}
+    {{wizard.form.media }}
+{% endblock %}
+
+
+{% block title %}Enter PIN{% endblock %}
+
+{% block body_block %}
+<style>
+    .form-signin {
+         max-width: 550px;
+         padding: 15px;
+         margin: 0 auto;
+    }    
+    .btn {
+                width: 100px;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="container text-center">
+            <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+            <form action="" method="post">
+                {{ wizard.management_form }}
+                {{ form.as_p }}
+                {% csrf_token %}
+        </div>
+    </div>
+    <div class="row">
+        <a href="{{ cancel_url }}" class="pull-right btn btn-lg btn-primary btn">{% trans "Cancel" %}</a>
+    </div>
+    <div class="row">
+        <input type="submit" class="btn btn-lg btn-primary pull-right" value="Enter" />
+    </div>
+
+     </form>
+</div>
+{% endblock %}

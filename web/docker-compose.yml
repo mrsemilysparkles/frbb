@@ -1,0 +1,20 @@
+## First Regional Bunny Bank (FRBB) Development Containers
+##
+# FRBB requires a redis server running along side the FRBB application
+# This docker-compose file starts up the redis service and the frbb app
+# as two seperate but linked containers.
+redis:
+  container_name: frbb_redis
+  image: redis:2.8
+  expose:
+   - "6379"
+web:
+  container_name: frbb_web
+  build: .
+  ports:
+    - "8000:8000"
+  volumes: 
+    - ./:/usr/src/app
+  links:
+    - redis:redis
+

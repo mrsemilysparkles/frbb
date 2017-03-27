@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block script %}
+    $(document).keypress(function(e){
+        if (e.which == 104){
+            window.location.href = "{% url "logout" %}";
+        }   
+        });
+{% endblock %}
+
+{% block title %}Printing Poetry{% endblock %}
+
+{% block content %}
+    <p>Printing Poems Withdrawn</p>
+    {% for poem in poems %}
+        <p> {{ poem }} </p>
+    {% endfor %}    
+{% endblock %}
+
+{% block r-button4 %}
+    <a href="{% url "logout" %}" class="btn btn-lg btn-primary btn">Logout</a>
+{% endblock %}
+

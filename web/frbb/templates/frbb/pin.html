@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block head %}
+    {{wizard.form.media }}
+{% endblock %}
+
+{% block title %}Enter PIN{% endblock %}
+{% block script %}
+    $(document).keypress(function(e){
+            if (e.which == 104){
+                        window.location.href = "{% url "index" %}";
+                                }
+                                    });
+
+{% endblock %}
+
+{% block header %}
+<div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="{{ wizard.steps.step1 }}" aria-valuemin="0" aria-valuemax="{{ wizard.steps.count }}" style="width:100%">
+      Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+    <script>
+    $(document).keypress(function(e){
+        if (e.which == 104){
+           window.location.href = "{% url "index" %}";
+        }
+    });
+    </script>
+    <form action="" method="post">
+        {{ wizard.management_form }}
+        {{ form.as_p }}
+        {% csrf_token %}
+    </form>
+{% endblock %}
+
+{% block r-button4 %}
+    <a href="{% url "index" %}" class="btn btn-lg btn-primary btn">Cancel</a>
+{% endblock %}
+

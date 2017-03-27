@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block script %}
+      $(document).keypress(function(e){
+        if (e.which == 103){
+            window.location.href = "{% url "dashboard" %}";
+        }
+        else if (e.which == 104) {
+            window.location.href = "{% url "logout" %}";
+        }
+      });
+{% endblock %}
+
+{% block content %}
+                
+                <h2>Deposited</h2> <blockquote>{{ poem }}</blockquote>
+{% endblock %}
+
+
+{% block r-button3 %}
+    <a href="{% url "dashboard" %}" class="btn btn-lg btn-primary btn">Back</a>
+{% endblock %}
+
+{% block r-button4 %}
+    <a href="{% url "logout" %}" class="btn btn-lg btn-primary btn">Logout</a>
+{% endblock %}

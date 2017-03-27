@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {{wizard.form.media }}
+{% endblock %}
+
+{% block script %}
+    $(document).keypress(function(e){
+        if (e.which == 104){
+            window.location.href = "{% url "index" %}";
+        }
+    });
+{% endblock %}
+
+{% block content %}
+    <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+    {% if form.errors  %}
+       <div id="msg" class="alert alert-danger">
+          <strong>Error!</strong> {{ form.errors.account_number }} 
+       </div>
+       <br />
+    {% else %}
+    	<h2> Enter your desired 4 digit Account Number.</h2>
+
+        <p>Push 'OK' after entering account number</p>
+    {% endif %}
+    {% if messages  %}
+        {% for message in messages %}
+        <div id="msg" class="alert alert-danger">
+          <strong>Error!</strong> {{ message }}
+        </div>
+        <br />
+        {% endfor %}
+    {% endif %}
+
+
+    <form action="" method="post">
+        {{ wizard.management_form }}
+        {{ form.as_p }}
+        {% csrf_token %}
+    </form>
+
+{% endblock %}
+
+{% block r-button4 %}
+    <a href="{% url "index" %}" class="btn btn-lg btn-primary btn">Cancel</a>
+{% endblock %}
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load i18n %}
+
+<html lang="en">
+<head>
+    <title>{% block title %}1st Regional Bunny Bank{% endblock %}</title>
+    <link herf="{% static "css/base.css" %}" rel="stylesheet">
+    <script src="/static/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/frbb.css">
+
+    <script>
+    
+    {% block script %}
+    {% endblock %}
+    
+    </script>
+</head>
+<body>
+    <div id="bdy">
+
+        <div id="content" class=""> 
+        <div id="header" class="page-header">
+            {% block header %}
+            {% endblock %}
+        </div>
+            <div id="l-side">
+                <div id="l-button1" class="">
+                    {% block l-button1 %}
+                    <a href="" class="btn btn-lg btn-primary btn" disabled style="visibility:hidden"></a>
+                    {% endblock %}
+                </div>
+                <div id="l-button2" class="">
+                    {% block l-button2 %}
+                    <a href="" class="btn btn-lg btn-primary btn" disabled style="visibility:hidden"></a>
+                    {% endblock %}
+                </div>
+                <div id="l-button3" class="">
+                    {% block l-button3 %}
+                    <a href="" class="btn btn-lg btn-primary btn" disabled style="visibility:hidden"></a>
+                    {% endblock %}
+                </div>
+                <div id="l-button4" class="">
+                    {% block l-button4 %}
+                    <a href="" class="btn btn-lg btn-primary btn" disabled style="visibility:hidden"></a>
+                    {% endblock %}
+                </div>
+                <div id="spacer" class="spacer50">
+                </div>
+            </div>
+            <div id="main" class="jumbotron">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div id="r-side">
+                <div id="r-button1" class="">
+                    {% block r-button1 %}
+                    <a href="" class="btn btn-lg btn-primary btn" disabled style="visibility:hidden"></a>
+                    {% endblock %}
+                </div>
+                <div id="r-button2" class="">
+                    {% block r-button2 %}
+                    <a href="" class="btn btn-lg btn-primary btn" disabled style="visibility:hidden"></a>
+                    {% endblock %}
+                </div>
+                <div id="r-button3" class="">
+                    {% block r-button3 %}
+                    <a href="" class="btn btn-lg btn-primary btn" disabled style="visibility:hidden"></a>
+                    {% endblock %}
+                </div>
+                <div id="r-button4" class="">
+                    {% block r-button4 %}
+                    <a href="" class="btn btn-lg btn-primary btn"></a>
+                    {% endblock %}
+                </div>
+                <div id="spacer" class="spacer50">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

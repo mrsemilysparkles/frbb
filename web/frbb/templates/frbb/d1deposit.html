@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {{wizard.form.media }}
+{% endblock %}
+
+{% block script %}
+
+        $(document).keypress(function(e){
+        if (e.which == 104){
+            window.location.href = "{% url "index" %}";
+        }
+        else if (e.which == 103){
+            window.location.reload(true);
+        }
+        else if (e.which == 49){
+            document.getElementById("id_D1-plural_noun").value = document.getElementById("D1_1").value;
+        }
+        else if (e.which == 50){
+            document.getElementById("id_D1-plural_noun").value = document.getElementById("D1_2").value;
+        }
+        else if (e.which == 51){
+            document.getElementById("id_D1-plural_noun").value = document.getElementById("D1_3").value;
+        }
+        else if (e.which == 52){
+            document.getElementById("id_D1-plural_noun").value = document.getElementById("D1_4").value;
+        }
+        else if (e.which == 53){
+            document.getElementById("id_D1-plural_noun").value = document.getElementById("D1_5").value;
+        }
+        else if (e.which == 54){
+            document.getElementById("id_D1-plural_noun").value = document.getElementById("D1_6").value;
+        }
+        else if (e.which == 55){
+            document.getElementById("id_D1-plural_noun").value = document.getElementById("D1_7").value;
+        }
+        else if (e.which == 56){
+            document.getElementById("id_D1-plural_noun").value = document.getElementById("D1_8").value;
+        }
+        else if (e.which == 57){
+            document.getElementById("id_D1-plural_noun").value = document.getElementById("D1_9").value;
+        }
+        else if (e.which ==13){
+            $("form").submit();
+        }
+    });
+{% endblock %}
+
+{% block content %}
+    <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+    {% if form.errors %}
+    {% endif %}
+
+
+    <form action="" method="post">
+
+        {{ wizard.management_form }}
+        {{ form.as_p }}
+        {% for word in form.choices.d1 %}
+        <input type="radio" name="word" value="{{ word }}" id="D1_{{forloop.counter}}">{{forloop.counter}}. {{ word}}<br>
+        {% endfor %}
+        
+        {% csrf_token %}
+    </form>
+
+{% endblock %}
+
+{% block r-button4 %}
+    <a href="{% url "index" %}" class="btn btn-lg btn-primary btn">Cancel</a>
+{% endblock %}
+
+{% block r-button3 %}
+    <a href="{{ step.url }}" class="btn btn-lg btn-primary btn">Refresh</a>
+{% endblock %}
