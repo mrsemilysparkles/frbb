@@ -41,9 +41,19 @@ sudo docker-compose rm
 sudo docker ps
 ```
 
+## Available Pages
+Currently the css styling and buttons are missng :anguished: and I don't understand why. This makes the site painfully hard to navigate. 
+* http://localhost:8000/frbb/login
+* http://localhost:8000/frbb/register
+* http://localhost:8000/frbb/dashboard
+* http://localhost:8000/frbb/deposit
+* http://localhost:8000/frbb/withdraw
+* http://localhost:8000/frbb/logout
+
 
 ## Adding new python dependencies
 Dependencies are built into the frbb container created with `sudo docker-compose up -d` to install a new dependency the old environment must be stopped if running and deleted `sudo docker-compose stop` followed by `sudo docker-compose rm`.  Add a new line to the `frbb/web/requirements.txt` file then issue `sudo docker-compose up -d` to build a new development environment with the additional dependency.
+
 
 
 
