@@ -14,7 +14,7 @@ from .forms import CreateAccountForm, CreatePinForm, D1Form, D2Form, D3Form,\
 
 from .models import UserProfile, Poem, Word
 
-from .printer import  print_new_account_info, print_poem
+#from .printer import  print_new_account_info, print_poem
 #from .lights import new_account_lighting, deposit_lighting, withdraw_lighting, logout_lighting, out_of_paper_lighting, login_lighting
 #from .sounds import new_account_sound, deposit_sound, withdraw_sound, logout_sound, login_sound
 
@@ -77,11 +77,12 @@ class RegisterWizard(SessionWizardView):
         if authenticated_user is not None:
             login(self.request, authenticated_user)
             terms_of_service = "These are some terrible TOS conditions"
-            #new_account_sound()
+            #TODO: Needs communication to Redis server to receive these communication
+	    #new_account_sound()
             #new_account_lighting()
-            print_new_account_info(account_number=cd['account_number'],
-                                       pin_number=cd['pin_number'],
-                                       tos=terms_of_service);
+            #print_new_account_info(account_number=cd['account_number'],
+            #                           pin_number=cd['pin_number'],
+            #                           tos=terms_of_service);
 
 
             return HttpResponseRedirect('/frbb/dashboard')
@@ -114,7 +115,8 @@ class DepositWizard(SessionWizardView):
         print("Deposited Poem: {}".format(poem))
 	upc_code = str(datetime.now().strftime('%M%d%H')) + str(hash(self.request.user.username, 'c'))
 	print("UPC_CODE: {}".format(upc_code))
-        print_poem(poem, upc_code)
+        #TODO: Needs communication to Redis server to receive these communications
+        #print_poem(poem, upc_code)
 
         return render(self.request, 'frbb/deposit.html', {'poem': poem})
 
@@ -177,8 +179,9 @@ class WithdrawWizard(SessionWizardView):
         
 	upc_code = str(datetime.now().strftime('%M%d%H')) + str(hash(self.request.user.username, cd['choice']))
 	for poem in poems:
-            print_poem(str(poem.text), upc_code)
-
+            #TODO: Needs communication to Redis server to receive these communications
+            #print_poem(str(poem.text), upc_code)
+            pass
 
 	return HttpResponseRedirect('/frbb/logout') 
 
