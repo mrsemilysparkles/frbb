@@ -5,18 +5,11 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block script %}
-      $(document).keypress(function(e){
-        if (e.which == 100){
-            window.location.href = "{% url "deposit" %}";
-        }
-
-        else if (e.which == 99){
-            window.location.href = "{% url "withdraw" %}";
-        }
-        else if (e.which == 104) {
-            window.location.href = "{% url "logout" %}";
-        }
-      });
+<script type="text/javascript">
+  URL_KEY_MAP[100]="{% url "deposit" %}";
+  URL_KEY_MAP[99]="{% url "withdraw" %}";
+  URL_KEY_MAP[104]="{% url "logout" %}";
+</script>
 {% endblock %}
 
 {% block content %}

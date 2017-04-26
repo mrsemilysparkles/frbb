@@ -1,10 +1,8 @@
 {% extends "base.html" %}
 {% block script %}
-    $(document).keypress(function(e){
-        if (e.which == 104){
-            window.location.href = "{% url "logout" %}";
-        }   
-        });
+<script type="text/javascript">
+  URL_KEY_MAP[104]="{% url "logout" %}";
+</script>
 {% endblock %}
 
 {% block title %}Printing Poetry{% endblock %}
@@ -13,10 +11,9 @@
     <p>Printing Poems Withdrawn</p>
     {% for poem in poems %}
         <p> {{ poem }} </p>
-    {% endfor %}    
+    {% endfor %}
 {% endblock %}
 
 {% block r-button4 %}
     <a href="{% url "logout" %}" class="btn btn-lg btn-primary btn">Logout</a>
 {% endblock %}
-

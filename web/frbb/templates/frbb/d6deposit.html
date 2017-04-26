@@ -5,47 +5,20 @@
 {% endblock %}
 
 {% block script %}
-    $(document).keypress(function(e){
-        if (e.which == 104){
-            window.location.href = "{% url "index" %}";
-        }
-        else if (e.which == 103){
-            window.location.reload(true);
-        }
-
-        else if (e.which == 49){
-            document.getElementById("id_D6-adjective2").value = document.getElementById("D6_1").value;
-        }
-        else if (e.which == 50){
-            document.getElementById("id_D6-adjective2").value = document.getElementById("D6_2").value;
-        }
-        else if (e.which == 51){
-            document.getElementById("id_D6-adjective2").value = document.getElementById("D6_3").value;
-        }
-        else if (e.which == 52){
-            document.getElementById("id_D6-adjective2").value = document.getElementById("D6_4").value;
-        }
-        else if (e.which == 53){
-            document.getElementById("id_D6-adjective2").value = document.getElementById("D6_5").value;
-        }
-        else if (e.which == 54){
-            document.getElementById("id_D6-adjective2").value =  document.getElementById("D6_6").value;
-        }
-        else if (e.which == 55){
-            document.getElementById("id_D6-adjective2").value = document.getElementById("D6_7").value;
-        }
-        else if (e.which == 56){
-            document.getElementById("id_D6-adjective2").value = document.getElementById("D6_8").value;
-        }
-        else if (e.which == 57){
-            document.getElementById("id_D6-adjective2").value = document.getElementById("D6_9").value;
-        }
-        else if (e.which ==13){
-            $("form").submit();
-        }
-
-        
-        });
+<script type="text/javascript">
+  URL_KEY_MAP[104]="{% url "index" %}";
+  ACTION_MAP[103] = function() { window.location.reload(true); }};
+  ACTION_MAP[49] = function() { setWord("id_D6-adjective2", "D6_1") }};
+  ACTION_MAP[50] = function() { setWord("id_D6-adjective2", "D6_2") }};
+  ACTION_MAP[51] = function() { setWord("id_D6-adjective2", "D6_3") }};
+  ACTION_MAP[52] = function() { setWord("id_D6-adjective2", "D6_4") }};
+  ACTION_MAP[53] = function() { setWord("id_D6-adjective2", "D6_5") }};
+  ACTION_MAP[54] = function() { setWord("id_D6-adjective2", "D6_6") }};
+  ACTION_MAP[55] = function() { setWord("id_D6-adjective2", "D6_7") }};
+  ACTION_MAP[56] = function() { setWord("id_D6-adjective2", "D6_8") }};
+  ACTION_MAP[57] = function() { setWord("id_D6-adjective2", "D6_9") }};
+  ACTION_MAP[13] = function() { $("form").submit(); };
+</script>
 {% endblock %}
 
 {% block content %}
@@ -72,4 +45,3 @@
 {% block r-button3 %}
     <a href="{{ step.url }}" class="btn btn-lg btn-primary btn">Refresh</a>
 {% endblock %}
-

@@ -5,18 +5,14 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block script %}
-      $(document).keypress(function(e){
-        if (e.which == 103){
-            window.location.href = "{% url "dashboard" %}";
-        }
-        else if (e.which == 104) {
-            window.location.href = "{% url "logout" %}";
-        }
-      });
+<script type="text/javascript">
+  URL_KEY_MAP[103]="{% url "dashboard" %}";
+  URL_KEY_MAP[104]="{% url "logout" %}";
+</script>
 {% endblock %}
 
 {% block content %}
-                
+
                 <h2>Deposited</h2> <blockquote>{{ poem }}</blockquote>
 {% endblock %}
 

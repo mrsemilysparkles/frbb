@@ -7,18 +7,15 @@
 {% endblock %}
 
 {% block script %}
-    $(document).keypress(function(e){
-            if (e.which == 104){
-                        window.location.href = "{% url "index" %}";
-                                }
-                                    });
-
+<script>
+  URL_KEY_MAP[104]="{% url "index" %}";
+</script>
 {% endblock %}
 
 {% block content %}
     {% if form.errors  %}
        <div id="msg" class="alert alert-danger">
-          <strong>Error!</strong>  Account must be exactly 4 numbers 
+          <strong>Error!</strong>  Account must be exactly 4 numbers
        </div>
        <br />
     {% else %}
@@ -29,7 +26,7 @@
         {% for message in messages %}
         <div id="msg" class="alert alert-danger">
 	  <strong>Error!</strong> {{ message }}
-	</div> 
+	</div>
         <br />
         {% endfor %}
     {% endif %}
@@ -45,4 +42,3 @@
 {% block r-button4 %}
     <a href="{% url "index" %}" class="btn btn-lg btn-primary btn">Cancel</a>
 {% endblock %}
-

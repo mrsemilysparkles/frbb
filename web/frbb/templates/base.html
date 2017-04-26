@@ -7,22 +7,24 @@
     <title>{% block title %}1st Regional Bunny Bank{% endblock %}</title>
     <link herf="{% static "css/base.css" %}" rel="stylesheet">
     <script src="/static/jquery/dist/jquery.js"></script>
+    <script src="/static/js/app.js"></script>
     <script type="text/javascript" src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/static/frbb.css">
 
-    <script>
-    
+    <script type="text/javascript">
+      // This is annoying, ideally these would go in app, BUT i forgot in what order JS is executed... :(
+      var URL_KEY_MAP = {};
+      var ACTION_MAP = {};
+    </script>
     {% block script %}
     {% endblock %}
-    
-    </script>
 </head>
 <body>
     <div id="bdy">
 
-        <div id="content" class=""> 
+        <div id="content" class="">
         <div id="header" class="page-header">
             {% block header %}
             {% endblock %}
@@ -83,4 +85,3 @@
     </div>
 </body>
 </html>
-

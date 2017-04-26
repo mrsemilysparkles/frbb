@@ -1,14 +1,9 @@
 {% extends "base.html" %}
 {% block script %}
-    $(document).keypress(function(e){
-    if (e.which == 100){
-        window.location.href = "{% url "register" %}";
-    }
-    else if (e.which == 104) {
-        window.location.href = "{% url "login" %}";
-    }
-    }); 
-    
+<script charset="utf-8">
+  URL_KEY_MAP[100]="{% url "register" %}";
+  URL_KEY_MAP[104]="{% url "login" %}";
+</script>
 {% endblock %}
 
 
@@ -26,4 +21,3 @@
 {% block l-button4 %}
     <a href="{% url "register" %}" class="btn btn-lg btn-primary btn">First Time?</a>
 {% endblock %}
-

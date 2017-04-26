@@ -5,18 +5,16 @@
 {% endblock %}
 
 {% block script %}
-    $(document).keypress(function(e){
-        if (e.which == 104){
-            window.location.href = "{% url "index" %}";
-        }
-    });
+<script>
+  URL_KEY_MAP[104]="{% url "index" %}";
+</script>
 {% endblock %}
 
 {% block content %}
     <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
     {% if form.errors  %}
        <div id="msg" class="alert alert-danger">
-          <strong>Error!</strong> {{ form.errors.account_number }} 
+          <strong>Error!</strong> {{ form.errors.account_number }}
        </div>
        <br />
     {% else %}
@@ -45,4 +43,3 @@
 {% block r-button4 %}
     <a href="{% url "index" %}" class="btn btn-lg btn-primary btn">Cancel</a>
 {% endblock %}
-

@@ -4,12 +4,9 @@
     {{wizard.form.media }}
 {% endblock %}
 {% block script %}
-    $(document).keypress(function(e){
-            if (e.which == 104){
-                        window.location.href = "{% url "index" %}";
-                                }
-                                    });
-
+<script>
+  URL_KEY_MAP[104]="{% url "index" %}";
+</script>
 {% endblock %}
 
 {% block content %}

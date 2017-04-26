@@ -8,12 +8,9 @@
 
 {% block title %}Enter PIN{% endblock %}
 {% block script %}
-    $(document).keypress(function(e){
-            if (e.which == 104){
-                        window.location.href = "{% url "index" %}";
-                                }
-                                    });
-
+<script type="text/javascript">
+  URL_KEY_MAP[104]="{% url "index" %}";
+</script>
 {% endblock %}
 
 {% block header %}
@@ -42,4 +39,3 @@
 {% block r-button4 %}
     <a href="{% url "index" %}" class="btn btn-lg btn-primary btn">Cancel</a>
 {% endblock %}
-
