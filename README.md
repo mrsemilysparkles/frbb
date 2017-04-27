@@ -16,3 +16,11 @@ Encourage a dialog on consent.
 [Interface Interaction Youtube](https://youtu.be/7ocgCz-3aLk)
 
 [Trello Tasks](https://trello.com/b/wmx3QAnI/atm)
+
+[Slack] (https://projectanytruemeaning.slack.com/messages)
+
+[Word Choice Form] (https://docs.google.com/forms/d/1m5I_my1dNEZXOdYpu6aLgU9pD0cgnzNKLXCOFijvSBc/edit?usp=sharing)
+
+[Word Choice Responses *COMING SOON*]
+
+[Word Choice Final File *COMING SOON*]
